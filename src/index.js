@@ -32,14 +32,14 @@ function post(url,params){
 /**
  * 版本
  */
-export function version() {
+function version() {
 	return post('version')
 }
 
 /**
  * 随机数
  */
-export function random(params={}) {
+function random(params={}) {
 	if (!params.len) params.len = 32
 	return post('random', params)
 }
@@ -47,7 +47,7 @@ export function random(params={}) {
 /**
  * sm2消息签名
  */
-export function sm2sign(params={}) {
+function sm2sign(params={}) {
 	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2sign', params)
 }
@@ -55,7 +55,7 @@ export function sm2sign(params={}) {
 /**
  * sm2文件签名
  */
-export function sm2signFile(params={}) {
+function sm2signFile(params={}) {
 	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2sign', params)
 }
@@ -63,7 +63,7 @@ export function sm2signFile(params={}) {
 /**
  * sm2消息校验
  */
-export function sm2verify(params={}) {
+function sm2verify(params={}) {
 	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2verify', params)
 }
@@ -71,7 +71,7 @@ export function sm2verify(params={}) {
 /**
  * sm2文件校验
  */
-export function sm2verifyFile(params={}) {
+function sm2verifyFile(params={}) {
 	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2verify', params)
 }
@@ -79,7 +79,7 @@ export function sm2verifyFile(params={}) {
 /**
  * 字符串对称加密
  */
-export function encrypt(params={}) {
+function encrypt(params={}) {
 	if (!params.alg) params.alg = DEFAULT_ALG
 	return post('encrypt', params)
 }
@@ -87,7 +87,7 @@ export function encrypt(params={}) {
 /**
  * 字符串对称解密
  */
-export function decrypt(params={}) {
+function decrypt(params={}) {
 	if (!params.alg) params.alg = DEFAULT_ALG
 	return post('decrypt', params)
 }
@@ -95,7 +95,7 @@ export function decrypt(params={}) {
 /**
  * 读取key证书信息
  */
-export function certparse(params={}) {
+function certparse(params={}) {
 	if (!params.bsign) params.bsign = 0
 	return post('certparse', params)
 }
@@ -103,7 +103,7 @@ export function certparse(params={}) {
 /**
  * 导出证书
  */
-export function certexport(params={}) {
+function certexport(params={}) {
 	if (!params.bsign) params.bsign = 0
 	return post('certexport', params)
 }
@@ -111,21 +111,38 @@ export function certexport(params={}) {
 /**
  * PIN码校验
  */
-export function pinverify(params={}) {
+function pinverify(params={}) {
 	return post('pinverify', params)
 }
 
 /**
  * 更改PIN码
  */
-export function pinchange(params={}) {
+function pinchange(params={}) {
 	return post('pinchange', params)
 }
 
 /**
  * 生成P7(SM2WithSM3)
  */
-export function genp7(params={}) {
+function genp7(params={}) {
 	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('genp7', params)
+}
+
+export default {
+	post,
+	version,
+	random,
+	sm2sign,
+	sm2signFile,
+	sm2verify,
+	sm2verifyFile,
+	encrypt,
+	decrypt,
+	certparse,
+	certexport,
+	pinverify,
+	pinchange,
+	genp7
 }
