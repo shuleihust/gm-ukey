@@ -1,5 +1,7 @@
 const axios = require('axios')
 const BASE_URL = 'http://localhost:29527/api/v1/'
+const DEFAULT_IDA = '1234567812345678'
+const DEFAULT_ALG = 257
 
 /**
  * @param {Object} url
@@ -46,7 +48,7 @@ export function random(params={}) {
  * sm2消息签名
  */
 export function sm2sign(params={}) {
-	if (!params.ida) params.ida = '1234567812345678'
+	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2sign', params)
 }
 
@@ -54,7 +56,7 @@ export function sm2sign(params={}) {
  * sm2文件签名
  */
 export function sm2signFile(params={}) {
-	if (!params.ida) params.ida = '1234567812345678'
+	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2sign', params)
 }
 
@@ -62,7 +64,7 @@ export function sm2signFile(params={}) {
  * sm2消息校验
  */
 export function sm2verify(params={}) {
-	if (!params.ida) params.ida = '1234567812345678'
+	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2verify', params)
 }
 
@@ -70,7 +72,7 @@ export function sm2verify(params={}) {
  * sm2文件校验
  */
 export function sm2verifyFile(params={}) {
-	if (!params.ida) params.ida = '1234567812345678'
+	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('sm2verify', params)
 }
 
@@ -78,7 +80,7 @@ export function sm2verifyFile(params={}) {
  * 字符串对称加密
  */
 export function encrypt(params={}) {
-	if (!params.alg) params.alg = 257
+	if (!params.alg) params.alg = DEFAULT_ALG
 	return post('encrypt', params)
 }
 
@@ -86,7 +88,7 @@ export function encrypt(params={}) {
  * 字符串对称解密
  */
 export function decrypt(params={}) {
-	if (!params.alg) params.alg = 257
+	if (!params.alg) params.alg = DEFAULT_ALG
 	return post('decrypt', params)
 }
 
@@ -124,6 +126,6 @@ export function pinchange(params={}) {
  * 生成P7(SM2WithSM3)
  */
 export function genp7(params={}) {
-	if (!params.ida) params.ida = '1234567812345678'
+	if (!params.ida) params.ida = DEFAULT_IDA
 	return post('genp7', params)
 }
