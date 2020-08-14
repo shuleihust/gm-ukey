@@ -130,7 +130,7 @@ function genp7(params={}) {
 	return post('genp7', params)
 }
 
-module.exports = {
+export default {
 	post,
 	version,
 	random,
