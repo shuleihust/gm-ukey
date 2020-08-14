@@ -1,6 +1,6 @@
 const chai = require('chai')
 const should = chai.should()
-const UKey = require('../lib/index').default
+const UKey = require('../lib/index')
 
 describe("国密UKey接口测试",() => {
     it('测试版本',() => {
