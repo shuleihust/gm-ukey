@@ -2,7 +2,7 @@
   "name": "gm-ukey",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/gm-ukey.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "npm run build && mocha -t 5000",
     "build": "babel src -d lib"
