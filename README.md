@@ -4,12 +4,12 @@
 
 
 
-###安装
+### 安装
 
 ##### 使用npm
 
 ```
-$ npm install gm-ukey
+$ npm install gm-ukey --save
 ```
 
 ##### 使用cdn
