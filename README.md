@@ -1,4 +1,4 @@
-## gm-ukey
+# gm-ukey
 
 国密证书UkeySDK
 
@@ -6,13 +6,13 @@
 
 ###安装
 
-使用npm
+##### 使用npm
 
 ```
 $ npm install gm-ukey
 ```
 
-使用cdn
+##### 使用cdn
 
 ```
 <script src="https://shuleihust.gitee.io/gm-ukey/gm-ukey.js"></script>
@@ -22,7 +22,7 @@ $ npm install gm-ukey
 
 ### 使用
 
-使用import或者require引入
+##### 使用import或者require引入
 
 ```
 import GMUkey from 'gm-ukey'
@@ -32,7 +32,7 @@ import GMUkey from 'gm-ukey'
 
 
 
-异步调用接口
+##### 异步调用接口
 
 ```
 GMUKey.version().then(function (res) {
@@ -44,7 +44,7 @@ GMUKey.version().then(function (res) {
 
 
 
-同步调用接口
+##### 同步调用接口
 
 ```
 const res = await GMUKey.version()
