@@ -10,6 +10,7 @@ const DEFAULT_ALG = 257
 function post(url,params){
 	return new Promise((resolve, reject) => {
 		params = params || {}
+		params.ts = new Date().getTime()
 		axios.post(BASE_URL + url, params).then(res => {
 			if (typeof res.data === 'object') {
 				resolve(res.data)
@@ -130,7 +131,7 @@ function genp7(params={}) {
 	return post('genp7', params)
 }
 
-export {
+module.exports = {
 	post,
 	version,
 	random,

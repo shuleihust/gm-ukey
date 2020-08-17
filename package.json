@@ -2,10 +2,10 @@
   "name": "gm-ukey",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "dist/gm-ukey.js",
   "scripts": {
-    "test": "npm run build && mocha -t 5000",
-    "build": "babel src -d lib"
+    "test": "mocha -t 5000",
+    "build": "npx webpack"
   },
   "author": "",
   "license": "ISC",
