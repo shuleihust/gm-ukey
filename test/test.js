@@ -14,6 +14,9 @@ describe("国密GMUKey接口测试",() => {
 		})
 		res.code.should.equal(0)
 	})
+
+	let sm2Sign = ''
+	let sm2FileSign = ''
 	
 	it('sm2消息签名',async () => {
 	    const res = await GMUKey.sm2sign({
@@ -22,6 +25,7 @@ describe("国密GMUKey接口测试",() => {
 			ida:'1234567812345678'
 		})
 		res.code.should.equal(0)
+		sm2Sign = res.msg
 	})
 	
 	it('sm2文件签名',async () => {
@@ -31,12 +35,13 @@ describe("国密GMUKey接口测试",() => {
 			ida:'1234567812345678'
 		})
 		res.code.should.equal(0)
+		sm2FileSign = res.msg
 	})
 	
 	it('sm2消息校验',async () => {
 	    const res = await GMUKey.sm2verify({
 			msg: 'abc',
-			signature: 'MEQCIDBoUAUSlS4IGoSYolrGR50DnqJzl+szorMB5Xxd5b8+AiBxWjXoMpgy9Vt4RoeFNiOb/WPiT3pf17m2uEIfSvhkXg==',
+			signature: sm2Sign,
 			ida:'1234567812345678'
 		})
 		res.code.should.equal(0)
@@ -45,7 +50,7 @@ describe("国密GMUKey接口测试",() => {
 	it('sm2文件校验',async () => {
 	    const res = await GMUKey.sm2verifyFile({
 			path: 'D:\\a.txt',
-			signature: 'MEQCIH9sCan98Hkm/VPMuexLef+8gCOhlA+k2IJMRNiax3JLAiB2PC9PuYsuCFOAtZJSuu/eGOTFi554XD4ZOecOtZYvBQ==',
+			signature: sm2FileSign,
 			ida:'1234567812345678'
 		})
 		res.code.should.equal(0)

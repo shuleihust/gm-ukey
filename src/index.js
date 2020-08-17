@@ -1,5 +1,5 @@
 const axios = require('axios')
-const BASE_URL = 'http://localhost:29527/api/v1/'
+const BASE_URL = 'http://192.168.1.179:29527/api/v1/'
 const DEFAULT_IDA = '1234567812345678'
 const DEFAULT_ALG = 257
 
